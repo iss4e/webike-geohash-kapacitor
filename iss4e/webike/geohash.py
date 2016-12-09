@@ -1,6 +1,9 @@
 import sys
 
-from kapacitor.udf.agent import Agent, Handler
+import geohash
+
+from iss4e.webike import udf_pb2
+from iss4e.webike.agent import Agent, Handler
 
 
 class GeohashHandler(Handler):
@@ -65,11 +68,10 @@ class GeohashHandler(Handler):
             point.fieldsInt = {}
             point.fieldsString = {}
 
-        geohash = geohash.encode(
+        point.fieldsString[self._field_geohash] = geohash.encode(
             point.fieldsDouble[self._field_lat],
             point.fieldsDouble[self._field_long]
         )
-        point.fieldsString[self._field_geohash] = geohash
 
         # Send geohash point back to Kapacitor
         response = udf_pb2.Response()

@@ -25,6 +25,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'python-geohash>=0.8.5',
-        'kapacitor_udf'  # install from https://github.com/influxdata/kapacitor/tree/master/udf/agent/py/
+        "protobuf==3.0.0"
     ]
 )
