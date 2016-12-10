@@ -24,7 +24,8 @@ setup(
     ],
     packages=find_packages(),
     install_requires=[
-        'python-geohash>=0.8.5',
-        "protobuf==3.0.0"
-    ]
+        'python-geohash==0.8.5',
+        'protobuf==3.0.0'
+    ],
+    scripts=['iss4e/webike/geohash.py'],
 )
