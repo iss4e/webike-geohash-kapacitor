@@ -1,0 +1,9 @@
+var data = stream
+    |from()
+        .measurement('sensor_values')
+    @geohash()
+        .field_lat('latgps')
+        .field_long('longgps')
+    |influxDBOut()
+        .database('webike')
+        .measurement('geohashes')
