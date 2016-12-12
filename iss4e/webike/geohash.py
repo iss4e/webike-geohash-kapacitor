@@ -81,7 +81,10 @@ class GeohashHandler(Handler):
 
 if __name__ == '__main__':
     # Create an agent
-    agent = Agent()
+    agent = Agent(
+        _in=sys.stdin.buffer,
+        out=sys.stdout.buffer,
+    )
 
     # Create a handler and pass it an agent so it can write points
     h = GeohashHandler(agent)
