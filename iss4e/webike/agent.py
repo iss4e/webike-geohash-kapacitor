@@ -159,11 +159,10 @@ def encodeUvarint(writer, value):
     bits = value & varintMask
     value >>= shiftSize
     while value:
-        writer.write(chr(varintMoreMask | bits))
+        writer.write(bytes([varintMoreMask | bits]))
         bits = value & varintMask
         value >>= shiftSize
-    return writer.write(chr(bits))
-
+    return writer.write(bytes([bits]))
 
 # Decode an unsigned varint, max of 32 bits
 def decodeUvarint32(reader):
